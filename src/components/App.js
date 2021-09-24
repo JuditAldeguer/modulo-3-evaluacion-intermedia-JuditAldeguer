@@ -67,11 +67,11 @@ function App() {
       .map((el, i) => {
         return (
           <li key={i} className="li_container">
+            <button onClick={handleButton} className="buttonX">
+              x
+            </button>
             <h3>
               #{i} {el.name}
-              <button onClick={handleButton} className="buttonX">
-                x
-              </button>
             </h3>
             <p>
               <strong>Abierto entre semana: </strong>
@@ -98,19 +98,20 @@ function App() {
         </select>
       </header>
       <main>
-        <section>
+        <section className="section_clubs_list">
           <ul>{renderClubs()}</ul>
         </section>
-        <section>
+        <section className="section_new_club">
           <h2>Añadir un nuevo club</h2>
           <form action="" className="form">
             <label htmlFor="name">
               Nombre del club:
               <input
+                className="form--text_input"
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Nombre del club..."
+                placeholder="Club..."
                 value={newData.name}
                 onChange={handleInput}
               />
