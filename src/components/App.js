@@ -19,14 +19,6 @@ function App() {
   };
 
   //pending comprobation
-  const handleCheckWeek = (ev) => {
-    newData.openOnWeekdays = !newData.openOnWeekdays;
-    setNewData({ ...newData });
-  };
-  const handleCheckWeekend = (ev) => {
-    newData.openOnWeekend = !newData.openOnWeekend;
-    setNewData({ ...newData });
-  };
   const handleButtonAdd = (ev) => {
     ev.preventDefault();
     data.push(newData);
@@ -36,13 +28,21 @@ function App() {
   const handleInput = (ev) => {
     setNewData({ ...newData, name: ev.currentTarget.value });
   };
+  const handleCheckWeek = (ev) => {
+    newData.openOnWeekdays = !newData.openOnWeekdays;
+    setNewData({ ...newData });
+  };
+  const handleCheckWeekend = (ev) => {
+    newData.openOnWeekend = !newData.openOnWeekend;
+    setNewData({ ...newData });
+  };
 
   //RENDER---------------------------------------------------------------------------------------------
   //useEffect?
   //useEffect(() => {
   const renderClubs = () => {
     console.log(data); //pending delete
-    data.map((el, i) => {
+    return data.map((el, i) => {
       return (
         <li key={i} className="li_container">
           <h3>
@@ -54,6 +54,8 @@ function App() {
           <p>
             <strong>Abierto entre semana: </strong>
             <small>{el.openOnWeekdays ? 'Si' : 'No'}</small>
+          </p>
+          <p>
             <strong>Abierto el fin de semana: </strong>
             <small>{el.openOnWeekend ? 'Si' : 'No'}</small>
           </p>
