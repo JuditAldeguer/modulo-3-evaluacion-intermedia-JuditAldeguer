@@ -22,8 +22,6 @@ function App() {
   //ok
   const handleFilter = (ev) => {
     setFilterResult(ev.currentTarget.value);
-    console.log(filterResult);
-    renderClubs();
   };
   const handleButtonAdd = (ev) => {
     ev.preventDefault();
@@ -52,16 +50,12 @@ function App() {
     // debugger;-----------------da error el flitro!!!!!!!!!!!!
     return data
       .filter((club) => {
-        if (filterResult !== undefined) {
-          if (filterResult === 'all') {
-            return club;
-          } else if (filterResult === 'week') {
-            return club.openOnWeekdays === true;
-          } else if (filterResult === 'weekend') {
-            return club.openOnWeekend === true;
-          }
+        if (filterResult === 'week') {
+          return club.openOnWeekdays === true;
+        } else if (filterResult === 'weekend') {
+          return club.openOnWeekend === true;
         } else {
-          return club;
+          return true;
         }
       })
       .map((el, i) => {
@@ -91,7 +85,12 @@ function App() {
     <div>
       <header>
         <h2 className="title">Mis clubs</h2>
-        <select onChange={handleFilter} name="show" id="show">
+        <select
+          value={filterResult}
+          onChange={handleFilter}
+          name="show"
+          id="show"
+        >
           <option value="all">Todos</option>
           <option value="week">Los que abren entre semana</option>
           <option value="weekend">Los que abren el fin de semana</option>
