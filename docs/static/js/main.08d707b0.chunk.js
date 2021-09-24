@@ -1,2 +1,0 @@
-(this["webpackJsonpmi-primera-web"]=this["webpackJsonpmi-primera-web"]||[]).push([[0],{10:function(e,t,r){"use strict";r.r(t);r(1);var i=r(3),n=r.n(i),c=(r(8),r(0));var s=function(){return Object(c.jsx)("div",{children:Object(c.jsx)("header",{children:Object(c.jsx)("h1",{className:"title",children:"Starter Kit"})})})};n.a.render(Object(c.jsx)(s,{}),document.getElementById("root"))},8:function(e,t,r){}},[[10,1,2]]]);
-//# sourceMappingURL=main.08d707b0.chunk.js.map
