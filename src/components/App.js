@@ -8,8 +8,8 @@ function App() {
   const [data, setData] = useState(dataJson);
   const [newData, setNewData] = useState({
     name: '',
-    openOnWeekdays: true,
-    openOnWeekend: true,
+    openOnWeekdays: false,
+    openOnWeekend: false,
   });
 
   //HANDLE-----------------------------------------------------------------------------------------
@@ -20,18 +20,12 @@ function App() {
 
   //pending comprobation
   const handleCheckWeek = (ev) => {
-    if (ev.currentTarget.checked) {
-      setNewData({ ...newData, openOnWeekdays: true });
-    } else {
-      setNewData({ ...newData, openOnWeekdays: false });
-    }
+    newData.openOnWeekdays = !newData.openOnWeekdays;
+    setNewData({ ...newData });
   };
   const handleCheckWeekend = (ev) => {
-    if (ev.currentTarget.checked) {
-      setNewData({ ...newData, openOnWeekdays: true });
-    } else {
-      setNewData({ ...newData, openOnWeekdays: false });
-    }
+    newData.openOnWeekend = !newData.openOnWeekend;
+    setNewData({ ...newData });
   };
   const handleButtonAdd = (ev) => {
     ev.preventDefault();
@@ -45,8 +39,9 @@ function App() {
 
   //RENDER---------------------------------------------------------------------------------------------
   //useEffect?
+  //useEffect(() => {
   const renderClubs = () => {
-    console.log(data);
+    console.log(data); //pending delete
     data.map((el, i) => {
       return (
         <li key={i} className="li_container">
@@ -66,6 +61,7 @@ function App() {
       );
     });
   };
+  //}, [data]);
 
   //HTML----------------------------------------------------------------------
   return (
@@ -93,7 +89,7 @@ function App() {
                 id="name"
                 placeholder="Nombre del club..."
                 value={newData.name}
-                onChange={handleInput()}
+                onChange={handleInput}
               />
             </label>
             <label htmlFor="weekOpen">
@@ -102,8 +98,8 @@ function App() {
                 type="checkbox"
                 name="weekOpen"
                 id="weekOpen"
-                onChange={handleCheckWeek()}
-                checked={true}
+                onChange={handleCheckWeek}
+                checked={newData.openOnWeekdays.true ? true : false}
               />
             </label>
             <label htmlFor="weekOpen">
@@ -112,11 +108,11 @@ function App() {
                 type="checkbox"
                 name="weekendOpen"
                 id="weekendOpen"
-                onChange={handleCheckWeekend()}
-                checked={false}
+                onChange={handleCheckWeekend}
+                checked={newData.openOnWeekend.true ? true : false}
               />
             </label>
-            <button className="submitBtn" onClick={handleButtonAdd()}>
+            <button className="submitBtn" onClick={handleButtonAdd}>
               Añadir un nuevo club
             </button>
           </form>
