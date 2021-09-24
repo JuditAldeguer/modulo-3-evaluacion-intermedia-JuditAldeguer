@@ -28,6 +28,7 @@ main {
     width: fit-content;
     padding-inline-start: 0px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     flex-direction: column;
@@ -46,7 +47,6 @@ main {
     list-style-type: none;
     color: white;
     padding: 5px;
-    max-width: max-content;
     h3 {
       width: 100%;
     }
@@ -55,15 +55,9 @@ main {
       border-radius: 2px;
       color: white;
       width: 30px;
+      float: right;
       position: relative;
-      right: -175px;
       top: -15px;
-      @media (min-width: 768px) {
-        right: -145px;
-      }
-      @media (min-width: 815px) {
-        right: -160px;
-      }
     }
   }
 }
