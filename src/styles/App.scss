@@ -1,13 +1,50 @@
 * {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-image: url('../images/header-background.png');
+  border-bottom: 2px black solid;
+  padding: 1rem 1.2rem;
+  .title {
+    color: white;
+  }
 }
-.title {
-  color: white;
-  text-align: center;
+
+main {
+  margin: 10px;
+  section {
+    margin: 20px 0;
+  }
+  .li_container {
+    border: solid black 1px;
+    list-style-type: none;
+    h3 {
+      width: 100%;
+    }
+    .buttonX {
+      background-color: orange;
+      border-radius: 2px;
+      color: white;
+      float: right;
+    }
+  }
+  form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    input {
+      margin: 0 10px;
+    }
+    .submitBtn {
+      background-color: green;
+      color: white;
+      border-radius: 2px;
+      width: fit-content;
+      margin: 5px 0;
+    }
+  }
 }
