@@ -14,13 +14,13 @@ function App() {
   });
 
   //HANDLE-----------------------------------------------------------------------------------------
-  //pending
   const handleButton = (ev) => {
     ev.preventDefault();
-    //usar split
+    const parentLiId = ev.currentTarget.parentElement.id;
+    data.splice(parentLiId, 1);
+    setData([...data]);
   };
 
-  //ok
   const handleFilter = (ev) => {
     setFilterResult(ev.currentTarget.value);
   };
@@ -54,7 +54,7 @@ function App() {
     })
     .map((el, i) => {
       return (
-        <li key={i} className="li_container">
+        <li key={i} id={i} className="li_container">
           <button onClick={handleButton} className="buttonX">
             x
           </button>
