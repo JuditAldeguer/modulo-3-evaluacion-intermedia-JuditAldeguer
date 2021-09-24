@@ -103,7 +103,7 @@ function App() {
         </section>
         <section>
           <h2>Añadir un nuevo club</h2>
-          <form action="">
+          <form action="" className="form">
             <label htmlFor="name">
               Nombre del club:
               <input

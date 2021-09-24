@@ -28,8 +28,13 @@ main {
   .li_container {
     display: flex;
     flex-direction: column;
-    border: solid black 1px;
+    margin: 10px;
+    border: rgb(40, 95, 68) solid 2px;
+    border-radius: 10px;
+    background-color: rgb(31, 63, 88);
     list-style-type: none;
+    color: white;
+    padding: 5px;
     h3 {
       width: 100%;
     }
@@ -40,17 +45,21 @@ main {
       float: right;
     }
   }
-  form {
+  .form {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    background-color: rgb(65, 98, 126);
+    border: rgb(83, 145, 115) solid 2px;
+    border-radius: 10px;
+    margin: 10px;
     input {
       margin: 0 10px;
     }
     .submitBtn {
       background-color: green;
       color: white;
-      border-radius: 2px;
+      border-radius: 10px;
       width: fit-content;
       margin: 5px 0;
     }
