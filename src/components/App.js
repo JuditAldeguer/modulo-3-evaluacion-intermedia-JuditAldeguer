@@ -42,44 +42,36 @@ function App() {
   };
 
   //RENDER---------------------------------------------------------------------------------------------
-  //useEffect?
-  // useEffect(() => {
-  //   renderClubs();
-  // }, [data]);
-  const renderClubs = (filterResult) => {
-    console.log(data); //pending delete
-    // debugger;-----------------da error el flitro!!!!!!!!!!!!
-    return data
-      .filter((club) => {
-        if (filterResult === 'week') {
-          return club.openOnWeekdays === true;
-        } else if (filterResult === 'weekend') {
-          return club.openOnWeekend === true;
-        } else {
-          return true;
-        }
-      })
-      .map((el, i) => {
-        return (
-          <li key={i} className="li_container">
-            <button onClick={handleButton} className="buttonX">
-              x
-            </button>
-            <h3>
-              #{i} {el.name}
-            </h3>
-            <p>
-              <strong>Abierto entre semana: </strong>
-              <small>{el.openOnWeekdays ? 'Si' : 'No'}</small>
-            </p>
-            <p>
-              <strong>Abierto el fin de semana: </strong>
-              <small>{el.openOnWeekend ? 'Si' : 'No'}</small>
-            </p>
-          </li>
-        );
-      });
-  };
+  const htmlClub = data
+    .filter((club) => {
+      if (filterResult === 'week') {
+        return club.openOnWeekdays === true;
+      } else if (filterResult === 'weekend') {
+        return club.openOnWeekend === true;
+      } else {
+        return true;
+      }
+    })
+    .map((el, i) => {
+      return (
+        <li key={i} className="li_container">
+          <button onClick={handleButton} className="buttonX">
+            x
+          </button>
+          <h3>
+            #{i} {el.name}
+          </h3>
+          <p>
+            <strong>Abierto entre semana: </strong>
+            <small>{el.openOnWeekdays ? 'Si' : 'No'}</small>
+          </p>
+          <p>
+            <strong>Abierto el fin de semana: </strong>
+            <small>{el.openOnWeekend ? 'Si' : 'No'}</small>
+          </p>
+        </li>
+      );
+    });
 
   //HTML----------------------------------------------------------------------
   return (
@@ -99,7 +91,7 @@ function App() {
       </header>
       <main>
         <section className="section_clubs_list">
-          <ul>{renderClubs()}</ul>
+          <ul>{htmlClub}</ul>
         </section>
         <section className="section_new_club">
           <h2>Añadir un nuevo club</h2>
