@@ -4,6 +4,7 @@ import dataJson from '../services/data.json';
 import ls from '../services/local-storage.js'; //localStorage
 
 function App() {
+  let filterResult = 'all';
   //STATES-------------------------------------------------------------------------------------
   const [data, setData] = useState(dataJson);
   const [newData, setNewData] = useState({
@@ -17,7 +18,12 @@ function App() {
   const handleButton = (ev) => {
     ev.preventDefault();
   };
-
+  const handleFilter = (ev) => {
+    filterResult = ev.currentTarget.value;
+    console.log(filterResult);
+    renderClubs(filterResult);
+    return filterResult;
+  };
   //ok
   const handleButtonAdd = (ev) => {
     ev.preventDefault();
@@ -38,38 +44,54 @@ function App() {
 
   //RENDER---------------------------------------------------------------------------------------------
   //useEffect?
-  //useEffect(() => {
-  const renderClubs = () => {
+  // useEffect(() => {
+  //   renderClubs();
+  // }, [data]);
+  const renderClubs = (filterResult) => {
     console.log(data); //pending delete
-    return data.map((el, i) => {
-      return (
-        <li key={i} className="li_container">
-          <h3>
-            #{i} {el.name}
-            <button onClick={handleButton} className="buttonX">
-              x
-            </button>
-          </h3>
-          <p>
-            <strong>Abierto entre semana: </strong>
-            <small>{el.openOnWeekdays ? 'Si' : 'No'}</small>
-          </p>
-          <p>
-            <strong>Abierto el fin de semana: </strong>
-            <small>{el.openOnWeekend ? 'Si' : 'No'}</small>
-          </p>
-        </li>
-      );
-    });
+    // debugger;-----------------da error el flitro!!!!!!!!!!!!
+    return data
+      .filter((club) => {
+        if (filterResult !== undefined) {
+          if (filterResult === 'all') {
+            return club;
+          } else if (filterResult === 'week') {
+            return club.openOnWeekdays === true;
+          } else if (filterResult === 'weekend') {
+            return club.openOnWeekend === true;
+          }
+        } else {
+          return club;
+        }
+      })
+      .map((el, i) => {
+        return (
+          <li key={i} className="li_container">
+            <h3>
+              #{i} {el.name}
+              <button onClick={handleButton} className="buttonX">
+                x
+              </button>
+            </h3>
+            <p>
+              <strong>Abierto entre semana: </strong>
+              <small>{el.openOnWeekdays ? 'Si' : 'No'}</small>
+            </p>
+            <p>
+              <strong>Abierto el fin de semana: </strong>
+              <small>{el.openOnWeekend ? 'Si' : 'No'}</small>
+            </p>
+          </li>
+        );
+      });
   };
-  //}, [data]);
 
   //HTML----------------------------------------------------------------------
   return (
     <div>
       <header>
         <h2 className="title">Mis clubs</h2>
-        <select name="show" id="show">
+        <select onChange={handleFilter} name="show" id="show">
           <option value="all">Todos</option>
           <option value="week">Los que abren entre semana</option>
           <option value="weekend">Los que abren el fin de semana</option>
