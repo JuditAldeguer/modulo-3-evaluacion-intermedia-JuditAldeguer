@@ -4,9 +4,9 @@ import dataJson from '../services/data.json';
 import ls from '../services/local-storage.js'; //localStorage
 
 function App() {
-  let filterResult = 'all';
   //STATES-------------------------------------------------------------------------------------
   const [data, setData] = useState(dataJson);
+  const [filterResult, setFilterResult] = useState('all');
   const [newData, setNewData] = useState({
     name: '',
     openOnWeekdays: false,
@@ -18,13 +18,13 @@ function App() {
   const handleButton = (ev) => {
     ev.preventDefault();
   };
-  const handleFilter = (ev) => {
-    filterResult = ev.currentTarget.value;
-    console.log(filterResult);
-    renderClubs(filterResult);
-    return filterResult;
-  };
+
   //ok
+  const handleFilter = (ev) => {
+    setFilterResult(ev.currentTarget.value);
+    console.log(filterResult);
+    renderClubs();
+  };
   const handleButtonAdd = (ev) => {
     ev.preventDefault();
     data.push(newData);
