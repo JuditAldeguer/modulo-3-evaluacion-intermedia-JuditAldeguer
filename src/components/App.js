@@ -18,13 +18,12 @@ function App() {
     ev.preventDefault();
   };
 
-  //pending comprobation
+  //ok
   const handleButtonAdd = (ev) => {
     ev.preventDefault();
     data.push(newData);
     setData([...data]);
   };
-  //ok
   const handleInput = (ev) => {
     setNewData({ ...newData, name: ev.currentTarget.value });
   };
@@ -101,7 +100,7 @@ function App() {
                 name="weekOpen"
                 id="weekOpen"
                 onChange={handleCheckWeek}
-                checked={newData.openOnWeekdays.true ? true : false}
+                checked={newData.openOnWeekdays ? true : false}
               />
             </label>
             <label htmlFor="weekOpen">
@@ -111,7 +110,7 @@ function App() {
                 name="weekendOpen"
                 id="weekendOpen"
                 onChange={handleCheckWeekend}
-                checked={newData.openOnWeekend.true ? true : false}
+                checked={newData.openOnWeekend ? true : false}
               />
             </label>
             <button className="submitBtn" onClick={handleButtonAdd}>
