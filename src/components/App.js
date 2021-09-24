@@ -103,7 +103,7 @@ function App() {
         </section>
         <section className="section_new_club">
           <h2>Añadir un nuevo club</h2>
-          <form action="" className="form">
+          <form action="" className="form" onSubmit={handleButtonAdd}>
             <label htmlFor="name">
               Nombre del club:
               <input
