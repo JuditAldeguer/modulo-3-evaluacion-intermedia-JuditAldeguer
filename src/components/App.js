@@ -17,6 +17,7 @@ function App() {
   //pending
   const handleButton = (ev) => {
     ev.preventDefault();
+    //usar split
   };
 
   //ok
