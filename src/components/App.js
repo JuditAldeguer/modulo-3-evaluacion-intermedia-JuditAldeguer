@@ -13,14 +13,22 @@ function App() {
     openOnWeekend: false,
   });
 
+  //useEffect with LocalStorage-------------------------------------------------------------------
+  useEffect(() => {
+    ls.set('Clubsdata', data);
+  }, [data]);
+
   //HANDLE-----------------------------------------------------------------------------------------
-  const handleButton = (ev) => {
+  const handleButtonReset = (ev) => {
+    ev.preventDefault();
+    setData([]);
+  };
+  const handleButtonX = (ev) => {
     ev.preventDefault();
     const parentLiId = ev.currentTarget.parentElement.id;
     data.splice(parentLiId, 1);
     setData([...data]);
   };
-
   const handleFilter = (ev) => {
     setFilterResult(ev.currentTarget.value);
   };
@@ -28,6 +36,11 @@ function App() {
     ev.preventDefault();
     data.push(newData);
     setData([...data]);
+    setNewData({
+      name: '',
+      openOnWeekdays: false,
+      openOnWeekend: false,
+    });
   };
   const handleInput = (ev) => {
     setNewData({ ...newData, name: ev.currentTarget.value });
@@ -55,7 +68,7 @@ function App() {
     .map((el, i) => {
       return (
         <li key={i} id={i} className="li_container">
-          <button onClick={handleButton} className="buttonX">
+          <button onClick={handleButtonX} className="buttonX">
             x
           </button>
           <h3>
@@ -91,6 +104,9 @@ function App() {
       </header>
       <main>
         <section className="section_clubs_list">
+          <button onClick={handleButtonReset} className="buttonReset">
+            Borrar todo
+          </button>
           <ul>{htmlClub}</ul>
         </section>
         <section className="section_new_club">

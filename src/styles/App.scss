@@ -17,12 +17,20 @@ header {
 main {
   background-color: rgb(192, 219, 138);
   section {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 }
 
 .section_clubs_list {
+  .buttonReset {
+    background-color: orange;
+    border-radius: 2px;
+    color: white;
+    margin: 0 10px;
+    float: right;
+  }
   ul {
+    margin-top: 30px;
     margin-right: auto;
     margin-left: auto;
     width: fit-content;
@@ -57,7 +65,7 @@ main {
       width: 30px;
       float: right;
       position: relative;
-      top: -15px;
+      transform: translateY(-15px);
     }
   }
 }
