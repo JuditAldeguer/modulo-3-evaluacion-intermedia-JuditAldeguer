@@ -164,6 +164,9 @@ function App() {
           </form>
         </section>
       </main>
+      <footer class="footer">
+        <small> &copy; Todos los derechos reservados </small>
+      </footer>
     </div>
   );
 }
