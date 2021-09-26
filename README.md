@@ -27,8 +27,8 @@ Aqui dejo las anotaciones para la evaluación intermedia y también más a bajo 
   Añadidos de forma proactiva:
 
   - Posibilidade de **borar todos** los clubs con el botón Reset
-  - **Guardar en localStorage** los clubs
-  - **Importar desde localStorage** en caso que no sea la primera vez que el/la usuario/a se conecta
+  - **Guardar en localStorage** los clubs con el uso de **useEffect**
+  - **Importar desde localStorage** en caso que no sea la primera vez que el/la usuario/a se conecta con el uso de **useEffect**
 
 - Qué partes tiene  
   Contiene tres partes claras:
