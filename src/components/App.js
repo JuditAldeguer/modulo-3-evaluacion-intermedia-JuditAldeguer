@@ -88,7 +88,7 @@ function App() {
 
   //HTML----------------------------------------------------------------------
   return (
-    <div>
+    <div className="page">
       <header>
         <h2 className="title">Mis clubs</h2>
         <select
