@@ -49,7 +49,7 @@ Aqui dejo las anotaciones para la evaluación intermedia y también más a bajo 
   Gracias al Starter-Kit la instalación es muy simple, únicamente se precisa de _Visual Studio Code_ con las correspondientes extensiones, un navegador como, por ejemplo, _Chrome_ y _Github_.
 
 - Cómo se ejecuta  
-  Una vez se dispone de estas herramientas bien ubicadas, con los comandos <npm install> y <npm start> puedes empezar a hacer uso del React-Starter-Kit y sus facilidades.
+  Una vez se dispone de estas herramientas bien ubicadas, con los comandos <npm install> y <npm start> podrás empezar a hacer uso del React-Starter-Kit y sus facilidades.
 
 Espero que te guste mi trabajo y que puedas darme indicaciones para seguir mejorando.  
 Gracias por adelantado!!!
