@@ -5,7 +5,7 @@ import ls from '../services/local-storage.js'; //localStorage
 
 function App() {
   //STATES-------------------------------------------------------------------------------------
-  const [data, setData] = useState(dataJson);
+  const [data, setData] = useState([]);
   const [filterResult, setFilterResult] = useState('all');
   const [newData, setNewData] = useState({
     name: '',
@@ -13,6 +13,19 @@ function App() {
     openOnWeekend: false,
   });
 
+  //
+  useEffect(() => {
+    getDataInfo();
+  }, []);
+
+  const getDataInfo = () => {
+    const infoInLS = ls.get('Clubsdata');
+    if (infoInLS === undefined) {
+      setData(dataJson);
+    } else {
+      setData(infoInLS);
+    }
+  };
   //useEffect with LocalStorage-------------------------------------------------------------------
   useEffect(() => {
     ls.set('Clubsdata', data);
@@ -55,6 +68,7 @@ function App() {
   };
 
   //RENDER---------------------------------------------------------------------------------------------
+
   const htmlClub = data
     .filter((club) => {
       if (filterResult === 'week') {
@@ -150,6 +164,9 @@ function App() {
           </form>
         </section>
       </main>
+      <footer class="footer">
+        <small> &copy; Todos los derechos reservados </small>
+      </footer>
     </div>
   );
 }

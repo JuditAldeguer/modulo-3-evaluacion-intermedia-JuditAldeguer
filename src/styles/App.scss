@@ -119,10 +119,18 @@ main {
       margin: 20px auto 10px auto;
       font-weight: bolder;
       @media (min-width: 768px) {
-        margin: 20px auto 0 auto;
+        margin: 20px auto 10px auto;
         border-radius: 25px;
         padding: 10px;
       }
     }
   }
+}
+
+.footer {
+  opacity: 0.9;
+  padding: 0px 1rem;
+  color: white;
+  background-image: url('../images/header-background.png');
+  text-align: end;
 }
