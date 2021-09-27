@@ -19,9 +19,8 @@ header {
 }
 
 main {
-  height: 90vh;
+  min-height: 90vh;
   background-color: rgb(192, 219, 138);
-  overflow: scroll;
   section {
     padding: 10px 0;
   }
