@@ -104,7 +104,7 @@ function App() {
   return (
     <div className="page">
       <header>
-        <h2 className="title">Mis clubs:</h2>
+        <h2 className="title">Mis clubs</h2>
         <select
           value={filterResult}
           onChange={handleFilter}
