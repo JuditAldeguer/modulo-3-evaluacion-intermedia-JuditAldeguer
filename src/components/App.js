@@ -1,6 +1,7 @@
 import '../styles/App.scss';
 import { useEffect, useState } from 'react';
 import dataJson from '../services/data.json';
+import image from '../images/webpreview.png';
 import ls from '../services/local-storage.js'; //localStorage
 
 function App() {
@@ -164,7 +165,7 @@ function App() {
           </form>
         </section>
       </main>
-      <footer class="footer">
+      <footer className="footer">
         <small> &copy; Todos los derechos reservados </small>
       </footer>
     </div>
